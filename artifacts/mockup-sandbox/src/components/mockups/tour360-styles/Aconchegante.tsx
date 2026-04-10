@@ -29,8 +29,6 @@ export function Aconchegante() {
       className="relative w-full h-[720px] max-w-[1280px] mx-auto overflow-hidden flex flex-col select-none"
       style={{ fontFamily: "'Poppins', sans-serif", background: BEGE }}
     >
-      <style dangerouslySetInnerHTML={{ __html: `@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');` }} />
-
       {/* 360 Background Simulation */}
       <div className="absolute inset-0 z-0">
         <img

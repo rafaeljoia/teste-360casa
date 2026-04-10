@@ -1,15 +1,14 @@
 import React from "react";
-import { Minimalista } from "./Minimalista";
-import { Dark } from "./Dark";
-import { Aconchegante } from "./Aconchegante";
+
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const PREVIEWS = [
+  { label: "Moderno Minimalista", accent: "#C9A84C", path: "tour360-styles/Minimalista" },
+  { label: "Dark & Sofisticado",   accent: "#2E86AB", path: "tour360-styles/Dark" },
+  { label: "Aconchegante & Residencial", accent: "#C1440E", path: "tour360-styles/Aconchegante" },
+];
 
 export default function Comparison() {
-  const styles = [
-    { label: "Moderno Minimalista", accent: "#C9A84C", Component: Minimalista },
-    { label: "Dark & Sofisticado",  accent: "#2E86AB", Component: Dark },
-    { label: "Aconchegante & Residencial", accent: "#C1440E", Component: Aconchegante },
-  ];
-
   return (
     <div
       style={{
@@ -17,35 +16,47 @@ export default function Comparison() {
         flexDirection: "row",
         width: "100vw",
         height: "100vh",
-        background: "#1a1a1a",
-        gap: 0,
+        background: "#111",
         overflow: "hidden",
+        gap: 0,
       }}
     >
-      {styles.map(({ label, accent, Component }) => (
+      {PREVIEWS.map(({ label, accent, path }) => (
         <div
-          key={label}
+          key={path}
           style={{
             flex: "1 1 0",
             display: "flex",
             flexDirection: "column",
-            overflow: "hidden",
-            borderRight: "2px solid #2a2a2a",
             position: "relative",
+            borderRight: "2px solid #222",
+            overflow: "hidden",
           }}
         >
+          <iframe
+            src={`${BASE}/preview/${path}`}
+            title={label}
+            style={{
+              flex: 1,
+              width: "100%",
+              height: "100%",
+              border: "none",
+              display: "block",
+            }}
+            sandbox="allow-scripts allow-same-origin"
+          />
           <div
             style={{
               position: "absolute",
-              bottom: 12,
+              bottom: 14,
               left: "50%",
               transform: "translateX(-50%)",
               zIndex: 9999,
-              background: "rgba(0,0,0,0.72)",
+              background: "rgba(0,0,0,0.75)",
               backdropFilter: "blur(8px)",
               border: `1.5px solid ${accent}`,
               borderRadius: 999,
-              padding: "6px 18px",
+              padding: "5px 18px",
               fontSize: 12,
               fontWeight: 600,
               fontFamily: "system-ui, sans-serif",
@@ -57,9 +68,6 @@ export default function Comparison() {
           >
             <span style={{ color: accent, marginRight: 6 }}>●</span>
             {label}
-          </div>
-          <div style={{ flex: 1, overflow: "hidden", transform: "scale(1)", transformOrigin: "top left" }}>
-            <Component />
           </div>
         </div>
       ))}
