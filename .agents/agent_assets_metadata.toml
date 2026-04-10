@@ -1,0 +1,20 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "86f-U-l3bB6VqpxPr7Bld"
+uri = "file://artifacts/mockup-sandbox/public/images/minimalist-panorama.png"
+type = "image"
+title = "Minimalist luxury living room panorama"
+
+[[generated]]
+id = "16EFrZizZJrtB7_m2l1Io"
+uri = "file://artifacts/mockup-sandbox/public/images/aconchegante-bg.png"
+type = "image"
+title = "Cozy living room panorama"
+
+[[generated]]
+id = "LMmXh8H6NQip0-aobf-5h"
+uri = "file://artifacts/mockup-sandbox/public/images/dark-pano-bg.png"
+type = "image"
+title = "Dark modern living room panorama"
