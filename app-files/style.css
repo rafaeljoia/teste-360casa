@@ -270,6 +270,109 @@ body.single-scene #sceneListToggle {
   display: none;
 }
 
+/* ---- AUDIO TOGGLE ---- */
+
+#audioToggle {
+  display: flex;
+  position: absolute;
+  top: 16px;
+  right: 70px;
+  width: 44px;
+  height: 44px;
+  background: var(--bege-panel);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  z-index: 100;
+}
+
+.mobile #audioToggle {
+  width: 48px;
+  height: 48px;
+  top: 14px;
+  right: 76px;
+}
+
+body.fullscreen-enabled #audioToggle {
+  right: 126px;
+}
+
+body.fullscreen-enabled.mobile #audioToggle {
+  right: 138px;
+}
+
+#audioToggle:hover {
+  background: var(--bege);
+  box-shadow: var(--shadow);
+}
+
+#audioToggle.playing {
+  background: var(--terracota);
+  border-color: var(--terracota);
+}
+
+#audioToggle svg {
+  width: 20px;
+  height: 20px;
+  color: var(--text-dark);
+  transition: color 0.2s;
+}
+
+#audioToggle.playing svg {
+  color: #fff;
+}
+
+#audioToggle .icon.on  { display: none; }
+#audioToggle .icon.off { display: block; }
+#audioToggle.playing .icon.on  { display: block; }
+#audioToggle.playing .icon.off { display: none; }
+
+/* ---- AUDIO TOAST ---- */
+
+#audioToast {
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bege-panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 10px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dark);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s, transform 0.4s;
+  z-index: 200;
+}
+
+#audioToast.visible {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(-50%) translateY(0);
+  cursor: pointer;
+}
+
+#audioToast svg {
+  color: var(--terracota);
+  flex-shrink: 0;
+}
+
 /* ---- AUTOROTATE TOGGLE ---- */
 
 #autorotateToggle {
