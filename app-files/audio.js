@@ -66,6 +66,10 @@
     hideToast();
   });
 
+  audio.addEventListener('ended', function () {
+    setPlaying(false);
+  });
+
   window.addEventListener('load', function () {
     startAudio();
 
